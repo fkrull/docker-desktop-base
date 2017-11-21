@@ -3,9 +3,7 @@ ARG TAG=stretch
 
 FROM ${BASE_IMAGE}:${TAG}
 ARG DISPLAY=:0
-ARG USERNAME=pi
-ENV DISPLAY=${DISPLAY}
-ENV USER=${USER}
+ARG USER=pi
 
 ENV DEBIAN_FRONTEND=noninteractive
 ADD apt-pins /etc/apt/preferences.d/apt-pins
@@ -30,6 +28,10 @@ RUN useradd --create-home --shell=/bin/bash --groups=audio,sudo ${USER} && \
     chmod 0400 /etc/sudoers.d/nopasswd
 WORKDIR /home/${USER}
 VOLUME /home
+
+ENV DISPLAY=${DISPLAY}
+ENV USER=${USER}
+ENV KEYMAP=us
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod 0755 /docker-entrypoint.sh
