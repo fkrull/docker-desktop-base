@@ -1,4 +1,4 @@
 #!/bin/sh
-Xorg $DISPLAY &
+Xorg ${DISPLAY} &
 export DISPLAY
-exec sudo -u pi dbus-run-session $@
+exec sudo -u ${USER} dbus-run-session $@
