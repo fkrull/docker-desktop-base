@@ -10,4 +10,4 @@ https://hub.docker.com/r/fkrull/desktop-base
 
 By default, xterm is launched with no WM.
 
-The command is run as an unprivileged user (currently `pi` by default, though this can be changed using the `USER` build argument). This user can use `sudo` to run privileged commands.
+The command is run as an unprivileged user (currently `pi` by default, though this can be changed using the `USER` build argument). This user can use `sudo` to run privileged commands. A session dbus daemon is launched as well.
